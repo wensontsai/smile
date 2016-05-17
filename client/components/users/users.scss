@@ -1,0 +1,130 @@
+$border-color: #626262;
+$base-color: #DBDBDB;
+$body-color: #FFFAF0;
+$div-color: lighten( $base-color, 10% );
+$field-color: lighten( $div-color, 3% );
+
+.users-list {
+  height: 450px;
+  border: $border-color solid 2px;
+  border-radius: 10px;
+  padding: 1rem;
+  -webkit-flex: 1;
+  flex: 3 auto;
+  margin-top: 1rem;
+} 
+.user-add-view {
+  background-color: $div-color;
+	border: $border-color solid 2px;
+	border-radius: 10px;
+	padding: 1.25rem 1.5rem;
+	height: 135px;
+	flex: 1 auto;
+  margin-top: 1rem;
+  flex-direction: row;
+  display: inline-flex;
+}
+.user-add-view input {
+  width: 95%;
+  height: 85%;
+  background-color: $field-color;
+}
+.add-user {
+  text-align: right;
+  margin: auto 0;
+  margin-top: 4rem;
+}
+.action-status {
+	float: right;
+}
+.column{
+  flex: 3 auto;
+}
+.disabled {
+  opacity: 0.5;
+  filter: alpha(opacity = 60); /* IE */
+  pointer-events: none;
+}
+.user-add-view .field {
+  margin: 0.5rem 0;
+}
+.user-add-view .admin-panel {
+  margin: 1rem 0;
+}
+.user-add-view .admin-panel .selection-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.user-add-view .admin-panel .selection {
+  margin-right: 4rem;
+}
+.user-add-view .admin-panel .selection > input{
+  height: 2rem;
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+.users-list-view {
+  background-color: $div-color;
+  margin-top: 1rem;
+  height: 450px;
+  border: $border-color solid 2px;
+  border-radius: 10px;
+  padding: 1rem;
+  -webkit-flex: 1;
+  flex: 6 auto;
+  flex-direction: column;
+  display: inline-flex;
+  overflow: scroll;
+}
+.users-list-view .row {
+  margin: 0.25rem;
+  display: inline-flex;
+  min-height: 55px;
+}
+.users-list-view .header {
+  font-weight: 800;
+  font-size: 1em;
+}
+.users-list-view .field {
+  text-align: left;
+  margin: 0.25rem;
+  flex: 3;
+}
+.users-list-view .field.name {
+  flex: 3;
+}
+.users-list-view .field.email {
+  flex: 4;
+}
+.users-list-view .field.admin {
+  flex: 1;
+}
+.users-list-view .field.initiate-btn {
+  flex: 2;
+}
+.users-list-view .field.results-btn {
+  flex: 2;
+}
+
+
+
+
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}

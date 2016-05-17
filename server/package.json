@@ -1,0 +1,48 @@
+{
+  "name": "node-token-jwt",
+  "main": "server.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
+    "test:watch": "npm run test -- --watch",
+    "build-server": "babel -d ./build ./app -s",
+    "build": "rm -rf build && mkdir build && npm run build-server",
+    "build-dev:watch": "babel-watch app/server"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "dependencies": {
+    "babel-cli": "^6.7.5",
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "jsonwebtoken": "^5.4.1",
+    "mongoose": "^4.2.5",
+    "morgan": "^1.6.1",
+    "q": "^1.4.1"
+  },
+  "devDependencies": {
+    "async": "^1.5.2",
+    "babel-cli": "^6.7.5",
+    "babel-core": "^6.7.2",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-watch": "^2.0.2",
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "chai-immutable": "^1.5.3",
+    "factory-girl": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "mocha": "^2.4.5",
+    "mockgoose": "^5.4.1",
+    "request": "^2.69.0",
+    "should": "^8.3.0",
+    "sinon": "^1.17.3",
+    "supertest": "^1.2.0"
+  }
+}

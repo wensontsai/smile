@@ -1,0 +1,44 @@
+.notifications-container{
+  width: 30%;
+  position: absolute;
+  opacity: 0.9;
+  left: 35%;
+  text-align: center;
+  white-space: pre-wrap;
+}
+.notifications-container div{
+  padding: 3px;
+  height: 100%;
+  background-color: pink;
+  cursor: pointer;
+}
+a.boxclose{
+  float:right;
+  margin-top:-23px;
+  color: #fff;
+  font-weight: 300;
+  font-family: Arial, sans-serif;
+  font-size: 1.2em;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 5px;       
+}
+.boxclose:before {
+  content: "×";
+}
+
+
+.example-enter {
+  opacity: 0.01;
+  transition: opacity 1s ease-in;
+}
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+.example-leave {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+.example-leave.example-leave-active {
+  opacity: 0.01;
+}

@@ -1,0 +1,14 @@
+.DS_STORE
+*.log
+
+server/config.js
+server/config_test.js
+
+server/build
+server/static
+
+node_modules
+
+dist
+coverage
+

@@ -1,0 +1,6 @@
+// API-Backend Dispatches:
+export const QUERY_ALL_USERS_SUCCESS = 'QUERY_ALL_USERS_SUCCESS';
+export const QUERY_ALL_USERS_ERROR = 'QUERY_ALL_USERS_ERROR';
+
+export const ADD_USER_SUCCESS = 'ADD_USER_SUCCESS';
+export const ADD_USER_ERROR = 'ADD_USER_ERROR';
