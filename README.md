@@ -10,7 +10,7 @@ Serves up on localhost:3000
 
 #### Setup
 1. Install Node Modules:  
-```npm i```
+```npm i``` and 
 ```cd server && npm i```
 
 2. Testing Environment:  
