@@ -2,11 +2,11 @@
   "name": "node-token-jwt",
   "main": "server.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
+    "test": "NODE_ENV=TEST mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
     "test:watch": "npm run test -- --watch",
     "build-server": "babel -d ./build ./app -s",
     "build": "rm -rf build && mkdir build && npm run build-server",
-    "build-dev:watch": "babel-watch app/server"
+    "backend:watch": "babel-watch app/server"
   },
   "babel": {
     "presets": [
@@ -22,7 +22,10 @@
     "jsonwebtoken": "^5.4.1",
     "mongoose": "^4.2.5",
     "morgan": "^1.6.1",
-    "q": "^1.4.1"
+    "mysql": "^2.11.1",
+    "q": "^1.4.1",
+    "sequelize": "^3.23.4",
+    "sequelize-cli": "^2.4.0"
   },
   "devDependencies": {
     "async": "^1.5.2",

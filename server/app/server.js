@@ -5,33 +5,24 @@ var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
 var jwt = require('jsonwebtoken');
 
-var config = require ('../config');
+var db = require('../db');
+
 var app = express();
 
-// ~~~~~> TESTING: tests spin up test DB from individual specs <~~~~~
-if (process.env.NODE_ENV === 'test') {
-  var port = 3121;
-  var db_success_msg = '';
-  var server_success_msg = '==> 🌎  *** TEST ENV *** fired up <== on port: ' +port;
-}
-else {
-// Fire up DEVELOPMENT database
-  var port = process.env.PORT || 3001;
-  var db_success_msg = '~~~ > > > DEV ENV: Connected to MongoDB boyyÿÿÿÿÿÿ < < < ~~~';
-  var server_success_msg = '==> 🌎  DEV ENV: Magic is happening at http://localhost:' +port;
 
-  // ------------------------------------
-  // Mongo DB Connect
-  // ------------------------------------
-  mongoose.connect(config.db.dev, function(err) {
-    if(err) {
-      console.log('connection error', err);
-    } else {
-      console.log(db_success_msg);
-    }
-  });
-  app.set('secret', config.secret); // sets secret variable
-}
+// ------------------------------------
+// Environment & Database
+// ------------------------------------
+if(process.env.NODE_ENV === 'TEST') {
+  var port = 3121;
+  var serverSuccessMsg = '🌎  *** TEST ENV *** fired up <== on port: ' + port;
+  db.initializeDb(port, 'TEST');
+} 
+
+var port = 3001
+var serverSuccessMsg = '🌎  DEV ENV: Magic is happening at http://localhost: ' + port;
+db.initializeDb(port);
+
 
 // ------------------------------------
 // Middleware
@@ -63,9 +54,7 @@ function isAuthenticated(req, res, next) {
       message: 'No token provided!'
     });
   }
-
 }
-
 
 // ------------------------------------
 // Mongoose - Models
@@ -99,6 +88,6 @@ apiRoutes.post('/authenticateUser', sessionRoutes.authenticateUser(User, Session
 // HTTP server
 // ------------------------------------
 app.listen(port);
-console.log(server_success_msg);
+console.log('\n', serverSuccessMsg, '\n');
 
 module.exports = app;
