@@ -36,7 +36,7 @@ module.exports = {
   createSettings: function (port, env) {
     if(env === 'test') {
       var settings = config.test;
-      settings['dbSuccessMsg'] = '';
+      settings['dbSuccessMsg'] = '==> TEST ENV: MySQL connection successful';
     }
     if(env === 'development') {
       var settings = config.development;
