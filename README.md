@@ -13,8 +13,11 @@ Serves up on localhost:3000
 ```npm i``` and 
 ```cd server && npm i```
 
-2. Testing Environment:  
+2. Install Test Runner:  
 ```npm i -g mocha```
+
+3. Install Database Migration Environment:  
+```npm install -g sequelize-cli```
 
 #### Run 
 1.  Client

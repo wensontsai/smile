@@ -1,6 +1,7 @@
 .DS_STORE
 *.log
 
+server/config
 server/config.js
 server/config_test.js
 

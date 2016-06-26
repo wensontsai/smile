@@ -56,11 +56,13 @@ function isAuthenticated(req, res, next) {
   }
 }
 
+
 // ------------------------------------
 // Mongoose - Models
 // ------------------------------------
 var User = require('./models/user');
 var Session = require('./models/session');
+
 
 // ------------------------------------
 // API Routes
