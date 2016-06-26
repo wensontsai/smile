@@ -1,20 +1,20 @@
 var Sequelize = require('sequelize');
-var config = require ('./config');
+var config = require ('./config/config.json');
 
 module.exports = {
 
   initializeDb: function (port, env) {
     if (env === 'TEST') {
-      var settings = this.createTestVariables(port);
+      var settings = this.createSettings(port, "test");
     }
-    else {
-      var settings = this.createDevVariables(port);
+    if (env === 'DEVELOPMENT') {
+      var settings = this.createSettings(port, "development");
     }
     
-    var sequelize = new Sequelize(settings.database, config.username, port, {
-      host: 'localhost',
-      dialect: 'mysql',
-      port: port,
+    var sequelize = new Sequelize(settings.database, settings.username, settings.password, settings.password, settings.port, {
+      host: settings.host,
+      dialect: settings.dialect,
+      port: settings.port,
       pool: {
         max: 5,
         min: 0,
@@ -33,20 +33,16 @@ module.exports = {
 
   },
 
-  createTestVariables: function (port) {
-    return {
-      port: port,
-      database: config.test,
-      dbSuccessMsg: ''
+  createSettings: function (port, env) {
+    if(env === 'test') {
+      var settings = config.test;
+      settings['dbSuccessMsg'] = '';
     }
-  },
-
-  createDevVariables: function (port) {
-    return {
-      port: port,
-      database: config.dev,
-      dbSuccessMsg: '==> DEV ENV: MySQL connection successful boyyÿÿÿÿÿÿ'
+    if(env === 'development') {
+      var settings = config.development;
+      settings['dbSuccessMsg'] = '==> DEV ENV: MySQL connection successful boyyÿÿÿÿÿÿ';
     }
+    return settings;
   },
 
 };

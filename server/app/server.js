@@ -21,7 +21,7 @@ if(process.env.NODE_ENV === 'TEST') {
 
 var port = 3001
 var serverSuccessMsg = '🌎  DEV ENV: Magic is happening at http://localhost: ' + port;
-db.initializeDb(port);
+db.initializeDb(port, 'DEVELOPMENT');
 
 
 // ------------------------------------
