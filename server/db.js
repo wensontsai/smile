@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var config = require ('./config/config.json');
+var config = require ('./config.json');
 
 module.exports = {
 
@@ -30,6 +30,8 @@ module.exports = {
       .catch(function (err) {
         console.log('\n', '==>  Unable to connect to the database:', err, '\n');
       });
+
+    return sequelize;
 
   },
 

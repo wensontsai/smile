@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
 var jwt = require('jsonwebtoken');
 
-var db = require('../db');
+// var db = require('../db');
 
 var app = express();
 
@@ -13,15 +13,15 @@ var app = express();
 // ------------------------------------
 // Environment & Database
 // ------------------------------------
-if(process.env.NODE_ENV === 'TEST') {
-  var port = 3121;
-  var serverSuccessMsg = '🌎  *** TEST ENV *** fired up <== on port: ' + port;
-  db.initializeDb(port, 'TEST');
-} 
+// if(process.env.NODE_ENV === 'TEST') {
+//   var port = 3121;
+//   var serverSuccessMsg = '🌎  *** TEST ENV *** fired up <== on port: ' + port;
+//   var sequelize = db.initializeDb(port, 'TEST');
+// } 
 
-var port = 3001
-var serverSuccessMsg = '🌎  DEV ENV: Magic is happening at http://localhost: ' + port;
-db.initializeDb(port, 'DEVELOPMENT');
+// var port = 3001
+// var serverSuccessMsg = '🌎  DEV ENV: Magic is happening at http://localhost: ' + port;
+// var sequelize = db.initializeDb(port, 'DEVELOPMENT');
 
 
 // ------------------------------------
@@ -58,10 +58,31 @@ function isAuthenticated(req, res, next) {
 
 
 // ------------------------------------
-// Mongoose - Models
+// Sequelize - Models
 // ------------------------------------
-var User = require('./models/user');
-var Session = require('./models/session');
+var models = require('./models/index');
+var User = models.User;
+
+
+// ------------------------------------
+// Error Handling 
+// ------------------------------------
+// catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
+
+// // error handler
+// // no stacktraces leaked to user unless in development environment
+// app.use(function(err, req, res, next) {
+//   res.status(err.status || 500);
+//   res.render('error', {
+//     message: err.message,
+//     error: (app.get('env') === 'development') ? err : {}
+//   });
+// });
 
 
 // ------------------------------------
@@ -74,22 +95,26 @@ var userRoutes = require('./routes/userRoutes');
 var sessionRoutes = require('./routes/sessionRoutes');
 
 // ::::: GET :::::
-apiRoutes.get('/queryAllUsers', isAuthenticated, userRoutes.queryAllUsers(User));
+// apiRoutes.get('/queryAllUsers', isAuthenticated, userRoutes.queryAllUsers(User));
 
 // ::::: POST :::::
-apiRoutes.post('/addUser', isAuthenticated, userRoutes.addUser(User));
-apiRoutes.post('/loginUser', sessionRoutes.loginUser(User, Session));
-apiRoutes.post('/logoutUser', isAuthenticated, sessionRoutes.logoutUser(User, Session));
-apiRoutes.post('/authenticateUser', sessionRoutes.authenticateUser(User, Session));
+apiRoutes.get('/addUser', userRoutes.addUser(User));
+// apiRoutes.post('/addUser', isAuthenticated, userRoutes.addUser(User));
+// apiRoutes.post('/loginUser', sessionRoutes.loginUser(User, Session));
+// apiRoutes.post('/logoutUser', isAuthenticated, sessionRoutes.logoutUser(User, Session));
+// apiRoutes.post('/authenticateUser', sessionRoutes.authenticateUser(User, Session));
 
 // ::::: DELETE :::::
 
 
-
+models.sequelize.sync().then(function () {
+  app.listen(3001);
+  console.log('\n', 'merp', '\n');
+});
 // ------------------------------------
 // HTTP server
 // ------------------------------------
-app.listen(port);
-console.log('\n', serverSuccessMsg, '\n');
+// app.listen(port);
+// console.log('\n', serverSuccessMsg, '\n');
 
 module.exports = app;
