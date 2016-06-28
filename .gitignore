@@ -2,8 +2,8 @@
 *.log
 
 server/config
+server/config.json
 server/config.js
-server/config_test.js
 
 server/build
 server/static
