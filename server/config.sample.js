@@ -1,10 +1,6 @@
 module.exports = {
   appName: '<app_name>',
   secret: '<secret>',
-  db: {
-    dev: 'mongodb://localhost/<database_name>',
-    test: 'mongodb://localhost/<test_database_name>'
-  },
   email: {
     testPath: '<test_path_for_example_http://domain.com/exams',
     service: '<for_example_Gmail_or_other_service>',
