@@ -4,11 +4,12 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     price: DataTypes.DECIMAL,
     description: DataTypes.TEXT,
-    category: DataTypes.STRING
+    category: DataTypes.STRING,
+    user_id: DataTypes.INTEGER,
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        Item.belongsTo(models.User, { foreignKey: 'user_id'})
       }
     }
   });
