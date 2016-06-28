@@ -2,7 +2,7 @@ exports.addUser = function(User) {
   return function(req, res, next) {
     User.create({
       username: 'jon',
-      password: 'snow'
+      password: 'snowwwww'
     }).then(function(user) {
       console.log(user);
     });
