@@ -22,6 +22,7 @@ Serves up on localhost:3000
 4. Install Elasticsearch:  
 ```brew update```
 ```brew install elasticsearch```
+https://gist.github.com/jpalala/ab3c33dd9ee5a6efbdae
 
 #### Run 
 1.  Client
