@@ -40,5 +40,5 @@ https://gist.github.com/jpalala/ab3c33dd9ee5a6efbdae
 ```cd server && npm run build-dev:watch```
 
 3.  Elasticsearch
-  1. Run:  
-```elasticsearch```
+  1.  Run:  
+```cd elasticsearch```
