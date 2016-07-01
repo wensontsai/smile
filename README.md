@@ -19,6 +19,10 @@ Serves up on localhost:3000
 3. Install Database Migration Environment:  
 ```npm install -g sequelize-cli```
 
+4. Install Elasticsearch
+```brew update
+brew install elasticsearch```
+
 #### Run 
 1.  Client
   1. Run tests:  
