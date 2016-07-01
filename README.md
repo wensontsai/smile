@@ -39,9 +39,6 @@ https://gist.github.com/jpalala/ab3c33dd9ee5a6efbdae
   2.  Run Babel to transpile Node/Express back-end for API routes:  
 ```cd server && npm run build-dev:watch```
 
-1.  Client
-  1. Run tests:  
-```npm run test:watch```
-
-  2. Run webpack to compile front-end in dev mode:  
-```npm start```
+3.  Elasticsearch
+  1. Run:  
+```elasticsearch```
