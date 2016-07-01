@@ -21,7 +21,6 @@ Serves up on localhost:3000
 
 4. Install Elasticsearch:  
 ```brew update```
-
 ```brew install elasticsearch```
 
 #### Run 
