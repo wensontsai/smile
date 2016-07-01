@@ -41,4 +41,4 @@ https://gist.github.com/jpalala/ab3c33dd9ee5a6efbdae
 
 3.  Elasticsearch
   1.  Run:  
-```cd elasticsearch```
+```elasticsearch```
